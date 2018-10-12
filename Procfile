@@ -1,1 +1,1 @@
-web: gunicorn annuaire.wsgi
+web: gunicorn annuairerdc.wsgi
