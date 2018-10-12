@@ -1,0 +1,47 @@
+{% load i18n static  navigation_tags %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+
+<!--top header-->
+<header id="home">
+
+    <!--main-nav-->
+
+    <div id="main-nav">
+
+        <nav class="navbar">
+            <div class="container">
+
+                <div class="navbar-header">
+                    <a href="/" class="navbar-brand">ANNUAIRE RDC</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ftheme">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="navbar-collapse collapse" id="ftheme">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        <li class="{% active request.path '/'|add:LANGUAGE_CODE|add:'/'  %}"><a href="/">Organisations</a></li>
+                        {% url 'persons:list' as persons_url %}
+                        <li class="{% active request.path persons_url %}"><a href="{{ persons_url }}">Particuliers</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</header>
+
+
+
+
+
+		
+
+		

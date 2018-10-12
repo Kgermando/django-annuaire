@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang=en>
+{% load static %}
+<head>
+<title>{% block head_title %}Annuaire RDC{% endblock head_title %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{#<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{% include 'layouts/css.html' %}
+</head>
+
+<body class="corps">
+<div class="ocntainer">
+{% include 'layouts/nav.html' %}
+
+{#{% if messages %}#}
+{#<div class="alert messages text-center">#}
+{#    {% for message in messages %}#}
+{#    <b>{{ message }}</b><br/>#}
+{#    {% endfor %}#}
+{#</div>#}
+{#{% endif %}#}
+
+
+
+<div class="row no-gutters">
+  <div class="col-12 col-sm-6 col-md-8">
+        {% block content %}{% endblock content %}
+        {% block search %}{% endblock search %}
+  </div>
+
+  <div class="col-6 col-md-4">
+      <div  class="container">
+          {% include 'pages/contact.html' %}
+      </div>
+
+  </div>
+</div>
+
+
+</div>
+{% include 'layouts/footer.html' %}
+{% include 'layouts/js.html' %}
+
+</body>
+</html>

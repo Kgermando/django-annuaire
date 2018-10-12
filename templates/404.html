@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body_class %}template-404{% endblock %}
+{% block title %}404{% endblock title %}
+
+{% block hero %}
+ <!--==================================
+    =            START PAGE TITLE        =
+    ===================================-->
+<section id="page-title" style="background-image: url('/media/images/subheader-2.jpg');">
+<div class="row">
+    <div class="col-sm-12">
+    <div class="page-title-wrapper page-title-wrapper2">
+        <div class="container">
+        <h2 class="pull-left title"> <span class="cat-icon"><i class="fa fa-exclamation-circle"></i> </span> {% trans '404 Page' %}</h2>
+        <!-- breadcrumb -->
+        <ol class="breadcrumb pull-right">
+            <li><a href="/">{% trans 'Home'|upper %}</a></li>
+            <li class="active">404</li>
+        </ol> <!-- //breadcrumb -->
+        </div> <!-- //container -->
+    </div> <!-- //page-title-wrapper -->
+    </div>
+</div> <!-- //row -->
+</section>
+<!--====  End of PAGE TITLE  ====-->
+{% endblock hero %}
+{% block content %}
+<!--==================================
+=            START MAIN WRAPPER      =
+===================================-->
+<section class="main-wrapper error-page">
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-3 col-sm-offset-1">
+            <img src="img/error-logo-left.png" class="img-responsive error-img" alt="404">
+            </div>
+            <div class="col-sm-7">
+            <p class="title">404</p>
+            <h2 class="mtb20">
+                {% blocktrans %} Error! We're sorry, but the page you were<br> looking for doesn't exist.{% endblocktrans %}
+            </h2>
+            
+            </div> <!-- //col-sm-12 -->
+        </div> <!-- //row -->
+    </div> <!-- //container -->
+</section>
+<!--====  End of MAIN WRAPPER  ====-->
+{% endblock %}

@@ -1,0 +1,126 @@
+{% load i18n static wagtailuserbar navigation_tags %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {# External css libraries #}
+        {% if debug %}
+        <link rel="stylesheet" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css'%}">
+        <link rel="stylesheet" href="{% static 'bower_components/nanoscroller/bin/css/nanoscroller.css' %}">  
+        {% else %}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/css/nanoscroller.min.css">
+            
+        {% endif %}
+        <link rel="stylesheet" href="{% static 'bower_components/font-awesome/css/font-awesome.min.css'%}">
+        <link rel="stylesheet" href="{% static 'css/cs-select.css' %}">  
+        <link rel="stylesheet" href="{% static 'bower_components/animate.css/animate.min.css' %}">  
+        
+        <link rel="stylesheet" href="{% static 'bower_components/owl.carousel/dist/assets/owl.carousel.css' %}">  
+        <link rel="stylesheet" href="{% static 'bower_components/flexslider/flexslider.css' %}">
+        <link rel="stylesheet" href="{% static 'bower_components/bootstrap-social/bootstrap-social.css' %}">  
+        {# Custom css #}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">  
+        <link rel="stylesheet" href="{% static 'css/presets/preset1.css' %}">  
+        <link rel="stylesheet" href="{% static 'css/responsive.css' %}">  
+        <link id="preset" rel="stylesheet" type="text/css" href="{% static 'css/presets/preset1.css' %}">  
+
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">  
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="sticky-header {% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+        <!--==================================
+		=            START Header          =
+		===================================-->	
+		{% include "partials/header.html" %}
+		<!--====  End of Header  ====-->
+        {% block hero %}{% endblock hero %}
+		
+		<!--==================================
+		=            START MAIN WRAPPER      =
+		===================================-->
+		<section class="main-wrapper">
+			<div class="container">
+				{% block content %}
+				
+				{% endblock content %}
+			</div> <!-- //container -->
+		</section>
+	
+		<!--====  End of MAIN WRAPPER  ====-->
+		
+		<!--==================================
+		=            START FOOTER            =
+		===================================-->
+		{% include "partials/footer.html" %}
+		<!--====  End of FOOTER  ====-->
+
+        {# -----SCRIPTS----- #}
+        {% if debug %}
+        <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        {# animation #}
+        <script src="{% static 'bower_components/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'bower_components/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js' %}"></script>
+        {% else %}
+        <script
+            src="https://code.jquery.com/jquery-1.9.1.min.js"
+            integrity="sha256-wS9gmOZBqsqWxgIVgA8Y9WcQOa7PgSIX+rPA0VL2rbQ="
+            crossorigin="anonymous"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/12.1.5/js/smooth-scroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nanoscroller/0.8.7/javascripts/jquery.nanoscroller.js" ></script>
+        {% endif %}
+        <script src="{% static 'bower_components/smoothscroll/dist/smoothscroll.min.js' %}"></script>
+        {# select menu #}
+        <script src="{% static 'bower_components/classie/classie.js' %}"></script>
+        <script src="{% static 'js/selectFx.js' %}"></script>
+        {# slider #}
+        
+        <script src="{% static 'bower_components/owl.carousel/dist/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'bower_components/flexslider/jquery.flexslider-min.js' %}"></script>
+        
+        {# sitcky menu #}
+        <script src="{% static 'bower_components/jquery-sticky/jquery.sticky.js' %}"></script>
+        {# custom js #}
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/switcher.js' %}"></script>
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>
