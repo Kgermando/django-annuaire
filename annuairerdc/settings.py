@@ -66,9 +66,9 @@ INSTALLED_APPS = [
     'persons',
     'django_extensions',
 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
 
     # required by django-allauth
     'django.contrib.sites',

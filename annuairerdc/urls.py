@@ -20,7 +20,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from persons import views
-from persons import views
 from persons.views import SearchView
 from django.views.generic import TemplateView
 
@@ -30,6 +29,6 @@ urlpatterns = [
     url(r'^contact/$', TemplateView.as_view(template_name="pages/contact.html"), name='contact'),
     url(r'^search/$', SearchView.as_view(), name='search'),
     url(r'^search/detail/(?P<id>[0-9]+)$', views.detail, name='details'),
-    url(r'^accounts/', include('allauth.urls'), name='allauth'),
+    # url(r'^accounts/', include('allauth.urls'), name='allauth'),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
