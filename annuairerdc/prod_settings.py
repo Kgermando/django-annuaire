@@ -1,13 +1,11 @@
-import dj_database_url
-from .settings import *
+from annuairerdc.settings import *
 
+import dj_database_url
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
 TEMPLATES_DEBUG = False
-
 
 ALLOWED_HOSTS = ['rdcannuaire.herokuapp.com']
 
