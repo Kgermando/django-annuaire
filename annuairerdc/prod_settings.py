@@ -9,7 +9,7 @@ DEBUG = False
 TEMPLATES_DEBUG = False
 
 
-ALLOWED_HOSTS = ['annuairerdc.herokuapp.com']
+ALLOWED_HOSTS = ['rdcannuaire.herokuapp.com']
 
 DATABASES['default'] = dj_database_url.config()
 
