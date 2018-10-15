@@ -4,7 +4,7 @@ from annuairerdc.settings import *
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
+DEBUG = True
 
 TEMPLATES_DEBUG = False
 
