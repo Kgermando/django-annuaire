@@ -6,7 +6,7 @@ from annuairerdc.settings import *
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-TEMPLATES_DEBUG = False
+# TEMPLATES_DEBUG = False
 
 DATABASES['default'] = dj_database_url.config()
 
