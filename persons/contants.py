@@ -1,6 +1,6 @@
 STATES = [
     ("Bas-Uele","Bas-Uele"),
-    ("Équateur","Équateur"),
+    ("Equateur","Equateur"),
     ("Haut-Katanga","Haut-Katanga"),
     ("Haut-Lomami","Haut-Lomami"),
     ("Haut-Uele","Haut-Uele"),
