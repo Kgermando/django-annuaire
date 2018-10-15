@@ -40,18 +40,18 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'germain kataku <katakugermain@gmail.com>'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'katakugermain@gmail.com' #hello@teamcfe.com
-EMAIL_MAIN = 'katakugermain@gmail.com'
-EMAIL_HOST_PASSWORD = '0813530838'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-ADMINS = [('germain kataku', EMAIL_HOST_USER)]
-MANAGERS = ADMINS
-
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# DEFAULT_FROM_EMAIL = 'germain kataku <katakugermain@gmail.com>'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'katakugermain@gmail.com' #hello@teamcfe.com
+# EMAIL_MAIN = 'katakugermain@gmail.com'
+# EMAIL_HOST_PASSWORD = '0813530838'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+#
+# ADMINS = [('germain kataku', EMAIL_HOST_USER)]
+# MANAGERS = ADMINS
+#
 
 # Application definition
 
@@ -169,4 +169,4 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-SITE_ID = 1
+# SITE_ID = 1
