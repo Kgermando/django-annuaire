@@ -12,6 +12,6 @@ DATABASES['default'] = dj_database_url.config()
 
 ALLOWED_HOSTS = ['rdcannuaire.herokuapp.com']
 
-# MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
+MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
