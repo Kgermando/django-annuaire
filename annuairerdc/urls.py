@@ -24,7 +24,7 @@ from persons.views import SearchView
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    url('admin/', admin.site.urls),
+    url('admin/', admin.site.urls, name='admin'),
     # url(r'^$', TemplateView.as_view(template_name="pages/index.html"), name='home'),
     url(r'^contact/$', TemplateView.as_view(template_name="pages/contact.html"), name='contact'),
     url(r'^$', SearchView.as_view(), name='search'),
