@@ -12,7 +12,7 @@ from persons.models import Post
 
 
 class SearchView(ListView):
-    template_name = 'search/view.html'
+    template_name = 'search/index.html'
     paginate_by = 20
     count = 0
 
