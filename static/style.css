@@ -383,7 +383,7 @@ li {
     height: 120px;
     background-color: #341a79;
     top: -200px;
-    left: 0;
+    left: 15px;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     overflow-x: hidden;
