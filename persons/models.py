@@ -12,8 +12,7 @@ class PostQuerySet(models.QuerySet):
     def search(self, query):
         if query:
             query = query.strip()
-            return self.filter(Q(societe__icontains=query) |
-                               Q(name__icontains=query) |
+            return self.filter(Q(societe__icontains=query) | ~Q(name__icontains=query) |
                                Q(ville__iexact=query) |
                                Q(quartier__icontains=query) |
                                Q(commune__icontains=query) |
@@ -36,7 +35,7 @@ class Post(models.Model):
     name = models.CharField(max_length=300)
     societe = models.CharField(max_length=300)
     number_1 = models.CharField(max_length=20)
-    number_2 = models.CharField(max_length=20)
+    number_2 = models.CharField(max_length=20, blank=True)
     email = models.EmailField(max_length=300, blank=True)
     adresse = models.TextField(blank=True, unique=True)
     quartier = models.CharField(max_length=300, blank=True)
