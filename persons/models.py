@@ -34,8 +34,8 @@ class PostManager(models.Manager):
 class Post(models.Model):
     name = models.CharField(max_length=300)
     societe = models.CharField(max_length=300)
-    number_1 = models.CharField(max_length=20)
-    number_2 = models.CharField(max_length=20, blank=True)
+    number_1 = models.CharField(max_length=15)
+    number_2 = models.CharField(max_length=15, blank=True)
     email = models.EmailField(max_length=300, blank=True)
     adresse = models.TextField(blank=True, unique=True)
     quartier = models.CharField(max_length=300, blank=True)
