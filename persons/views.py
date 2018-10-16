@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.core.paginator import InvalidPage, Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -13,8 +13,11 @@ from persons.models import Post
 
 class SearchView(ListView):
     template_name = 'search/index.html'
-    post_list = Post.objects.all()
-    paginator = Paginator(post_list, 20)  # Show 25 contacts per page
+    model = Post
+    context_object_name = 'posts'  # Default: object_list
+    paginate_by = 20
+    queryset = Post.objects.all()  # Default: Model.objects.all()
+
     count = 0
 
     def get_context_data(self, *args, **kwargs):

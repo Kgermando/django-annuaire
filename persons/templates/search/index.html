@@ -123,18 +123,34 @@
                                          <li>Vérifiez l'orthographe de vos termes de recherche...</li>
                                          <li>Réessayez dans une autre category recherche...</li>
                                     {% endfor %}
-                                    {% if object_list.has_previous or object_list.has_next %}
-                                        <div>
-                                            {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                                            |
-                                            {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                                        </div>
-                                    {% endif %}
-                                {% else %}
 
+                                {% else %}
                                 {% endif %}
+                                   
+                                    {% if is_paginated %}
+                                      <ul class="pagination">
+                                        {% if page_obj.has_previous %}
+                                          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                                        {% else %}
+                                          <li class="disabled"><span>&laquo;</span></li>
+                                        {% endif %}
+                                        {% for i in paginator.page_range %}
+                                          {% if page_obj.number == i %}
+                                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                          {% else %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                          {% endif %}
+                                        {% endfor %}
+                                        {% if page_obj.has_next %}
+                                          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                                        {% else %}
+                                          <li class="disabled"><span>&raquo;</span></li>
+                                        {% endif %}
+                                      </ul>
+                                    {% endif %}
                                     </div>
                                 </form>
+
                         </div>
                     </div>
                 </div>
