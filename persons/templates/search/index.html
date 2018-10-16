@@ -114,7 +114,7 @@
                                        <h4>{{ count }} Résultats pour votre recherche"<b><em>{{ query }}</em></b>"</h4>
 
                                     {% for object in object_list %}
-                                         <ul style="color: white">
+                                         <ul>
                                              <li>
                                                <a href='{{ object.get_absolute_url }}'>{{ object.name }}</a>
                                              </li>
@@ -123,11 +123,11 @@
                                          <li>Vérifiez l'orthographe de vos termes de recherche...</li>
                                          <li>Réessayez dans une autre category recherche...</li>
                                     {% endfor %}
-                                    {% if page.has_previous or page.has_next %}
-                                         <div>
-                                            {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Avant{% if page.has_previous %}</a>{% endif %}
-                                             |
-                                           {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Suivant &raquo;{% if page.has_next %}</a>{% endif %}
+                                    {% if object_list.has_previous or object_list.has_next %}
+                                        <div>
+                                            {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                                            |
+                                            {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
                                         </div>
                                     {% endif %}
                                 {% else %}

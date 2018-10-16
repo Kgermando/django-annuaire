@@ -13,7 +13,8 @@ from persons.models import Post
 
 class SearchView(ListView):
     template_name = 'search/index.html'
-    paginate_by = 20
+    post_list = Post.objects.all()
+    paginator = Paginator(post_list, 20)  # Show 25 contacts per page
     count = 0
 
     def get_context_data(self, *args, **kwargs):

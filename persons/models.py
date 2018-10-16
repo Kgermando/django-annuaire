@@ -10,9 +10,10 @@ from .contants import STATES
 
 class PostQuerySet(models.QuerySet):
     def search(self, query):
-        if query:
+        if query is not None:
             query = query.strip()
-            return self.filter(Q(societe__icontains=query) | ~Q(name__icontains=query) |
+            return self.filter(Q(societe__icontains=query) |
+                               Q(name__icontains=query) |
                                Q(ville__iexact=query) |
                                Q(quartier__icontains=query) |
                                Q(commune__icontains=query) |
