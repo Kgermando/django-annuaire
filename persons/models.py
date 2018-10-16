@@ -15,8 +15,6 @@ class PostQuerySet(models.QuerySet):
             return self.filter(Q(societe__icontains=query) |
                                Q(name__icontains=query) |
                                Q(ville__iexact=query) |
-                               Q(number_1__icontains=query) |
-                               Q(number_2__icontains=query) |
                                Q(quartier__icontains=query) |
                                Q(commune__icontains=query) |
                                Q(ville__icontains=query) |
