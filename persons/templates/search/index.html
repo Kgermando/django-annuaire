@@ -107,7 +107,7 @@
                                 <form action="." method="get">
                                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
                                     <input type="text" name="q" data-toggle="popover" data-placement="bottom" data-content="Press enter to search" class="form-control cfe-nav mt-0 py-3" placeholder="Recherche..." value="" style="" data-original-title="" title="" autofocus="autofocus">
-                                    <div style="child-align: middle">
+                                    <div style="">
                                     <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> Recherche</button>
                                     </div>
                                 {% if query %}
@@ -126,31 +126,23 @@
 
                                 {% else %}
                                 {% endif %}
-                                   
-                                    {% if is_paginated %}
-                                      <ul class="pagination">
-                                        {% if page_obj.has_previous %}
-                                          <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-                                        {% else %}
-                                          <li class="disabled"><span>&laquo;</span></li>
-                                        {% endif %}
-                                        {% for i in paginator.page_range %}
-                                          {% if page_obj.number == i %}
-                                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                                          {% else %}
-                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                          {% endif %}
-                                        {% endfor %}
-                                        {% if page_obj.has_next %}
-                                          <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-                                        {% else %}
-                                          <li class="disabled"><span>&raquo;</span></li>
-                                        {% endif %}
-                                      </ul>
-                                    {% endif %}
+                                   <div class="pagination">
+                                        <span class="step-links">
+                                            {% if page_obj.has_previous %}
+                                                <a href="?page={{ page_obj.previous_page_number }}">précedent</a>
+                                            {% endif %}
+
+                                            <span class="current">
+                                                Page {{ page_obj.number }} sur {{ paginator.num_pages }}.
+                                            </span>
+
+                                            {% if page_obj.has_next %}
+                                                <a href="?page={{ page_obj.next_page_number }}">suivant</a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
                                     </div>
                                 </form>
-
                         </div>
                     </div>
                 </div>
