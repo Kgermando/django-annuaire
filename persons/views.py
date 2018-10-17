@@ -13,11 +13,14 @@ from persons.models import Post
 
 class SearchView(ListView):
     template_name = 'search/index.html'
-    paginate_by = 20
+    paginate_by = 2
     count = 0
+    model = Post
+    context_object_name = 'posts'  # Default: object_list
+    queryset = Post.objects.all()  # Default: Model.objects.all()
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(SearchView, self).get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super(SearchView, self).get_context_data(**kwargs)
         context['count'] = self.count or 0
         context['query'] = self.request.GET.get('q')
         return context
