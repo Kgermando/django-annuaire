@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^search/detail/(?P<id>[0-9]+)$', views.detail, name='details'),
     # url(r'^accounts/', include('allauth.urls'), name='allauth'),
 
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
